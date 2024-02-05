@@ -1,3 +1,52 @@
+/* 메인 폰트 : 서강체 */
+@font-face {
+  font-family: "SOGANGUNIVERSITYTTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SOGANGUNIVERSITYTTF.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 서브 폰트 : 학교안심 산뜻돋움( 돋움 스타일 UI ) */
+@font-face {
+  font-family: "HakgyoansimSantteutdotumL";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimSantteutdotumL.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f6f6f6;
+  min-height: 100vh;
+  margin: 0px;
+
+  font-family: "SOGANGUNIVERSITYTTF", cursive;
+}
+
+@media (min-width: 650px) {
+  .App {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .App {
+    width: 90vw;
+  }
+}
+
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+}
+
 .App {
-  padding: 20px;
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
 }
