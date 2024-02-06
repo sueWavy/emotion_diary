@@ -8,10 +8,7 @@ import Edit from "./pages/Edit";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 
-// Components
-import MyButton from "./components/MyButton";
-import MyHeader from "./components/MyHeader";
-
+// Reducer
 const reducer = (state, action) => {
   let newState = [];
   switch (action.type) {
@@ -42,8 +39,42 @@ const reducer = (state, action) => {
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
+const dummyDate = [
+  {
+    id: 1,
+    emotion: 1,
+    content: "1번 일기",
+    date: 1707211322739,
+  },
+  {
+    id: 2,
+    emotion: 2,
+    content: "2번 일기",
+    date: 1707211322742,
+  },
+  {
+    id: 3,
+    emotion: 3,
+    content: "3번 일기",
+    date: 1707211322748,
+  },
+  {
+    id: 4,
+    emotion: 4,
+    content: "4번 일기",
+    date: 1707211322750,
+  },
+  {
+    id: 5,
+    emotion: 5,
+    content: "5번 일기",
+    date: 1707211322752,
+  },
+];
+
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
+  // state, dateId(KEY)
+  const [data, dispatch] = useReducer(reducer, dummyDate);
   const dataId = useRef(0);
 
   /** CREATE */
@@ -89,13 +120,6 @@ function App() {
       >
         <BrowserRouter>
           <div className="App">
-            <MyHeader
-              headText={"App"}
-              leftChild={<MyButton text={"<"} onClick={() => alert("왼쪽")} />}
-              rightChild={
-                <MyButton text={">"} onClick={() => alert("오른쪽")} />
-              }
-            />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />
