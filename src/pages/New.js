@@ -1,9 +1,10 @@
 import React from "react";
+import DiaryEditor from "../components/DiaryEditor";
 
 export default function New() {
   return (
     <div>
-      <p>여기는 NEW</p>
+      <DiaryEditor />
     </div>
   );
 }
