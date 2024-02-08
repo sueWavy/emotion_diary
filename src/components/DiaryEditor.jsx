@@ -40,7 +40,7 @@ const emotionList = [
   },
 ];
 
-export default function DiaryEditor() {
+export default function DiaryEditor({ isEdit, originData }) {
   const contentRef = useRef();
 
   const [content, setContent] = useState("");
@@ -54,7 +54,7 @@ export default function DiaryEditor() {
     setEmotion(emotion);
   };
 
-  const { onCreate } = useContext(DiaryDispatchContext);
+  const { onCreate, onEdit } = useContext(DiaryDispatchContext);
 
   /** 일기 생성 함수 */
   const handleSubmit = () => {
@@ -62,15 +62,30 @@ export default function DiaryEditor() {
       contentRef.current.focus();
       return;
     }
-    onCreate(date, content, emotion);
+
+    if (window.confirm(isEdit ? "일기를 수정하나요?" : "일기를 작성하나요?")) {
+      if (!isEdit) {
+        onCreate(date, content, emotion);
+      } else {
+        onEdit(originData.id, date, content, emotion);
+      }
+    }
     navigate("/", { replace: true });
     // replace:true 뒤로가기로 화면돌아가기 금지
   };
 
+  useEffect(() => {
+    if (isEdit) {
+      setDate(getStringDate(new Date(parseInt(originData.date))));
+      setEmotion(originData.emotion);
+      setContent(originData.content);
+    }
+  }, [isEdit, originData]);
+
   return (
     <Editor>
       <MyHeader
-        headText={"새 일기 작성하기"}
+        headText={isEdit ? "일기 수정하기" : "새 일기 작성하기"}
         leftChild={
           <MyButton text={"< 뒤로가기"} onClick={() => navigate(-1)} />
         }
