@@ -1,44 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { DiaryDispatchContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import { getStringDate } from "../util/date";
+import { emotionList } from "../util/emotion";
 import MyHeader from "./MyHeader";
 import MyButton from "./MyButton";
 import styled from "styled-components";
 import EmotionItem from "./EmotionItem";
 
 // 현재 날짜 가공해서 가져오기
-const getStringDate = (date) => {
-  return date.toISOString().slice(0, 10);
-};
+
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
-const emotionList = [
-  {
-    emotion_id: 1,
-    emotion_img: process.env.PUBLIC_URL + `/assets/emotion1.png`,
-    emotion_descript: "행복함",
-  },
-  {
-    emotion_id: 2,
-    emotion_img: process.env.PUBLIC_URL + `/assets/emotion2.png`,
-    emotion_descript: "좋음",
-  },
-  {
-    emotion_id: 3,
-    emotion_img: process.env.PUBLIC_URL + `/assets/emotion3.png`,
-    emotion_descript: "보통",
-  },
-  {
-    emotion_id: 4,
-    emotion_img: process.env.PUBLIC_URL + `/assets/emotion4.png`,
-    emotion_descript: "나쁨",
-  },
-  {
-    emotion_id: 5,
-    emotion_img: process.env.PUBLIC_URL + `/assets/emotion5.png`,
-    emotion_descript: "끔찍함",
-  },
-];
 
 export default function DiaryEditor({ isEdit, originData }) {
   const contentRef = useRef();
