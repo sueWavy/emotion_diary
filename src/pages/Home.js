@@ -24,7 +24,10 @@ export default function Home() {
       const lastDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth() + 1,
-        0
+        0,
+        23,
+        59,
+        59
       ).getTime();
 
       // 같은 달의 안에 있는 데이터만 필터링해서 보여주기
