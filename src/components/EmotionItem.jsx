@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function EmotionItem({
+const EmotionItem = ({
   emotion_id,
   emotion_img,
   emotion_descript,
   onClick,
   isSelected,
-}) {
+}) => {
   return (
     <Item
       onClick={() => onClick(emotion_id)}
@@ -19,7 +19,7 @@ export default function EmotionItem({
       <span>{emotion_descript}</span>
     </Item>
   );
-}
+};
 
 const Item = styled.div`
   display: flex;
@@ -66,3 +66,5 @@ const Item = styled.div`
     color: white;
   }
 `;
+
+export default React.memo(EmotionItem);

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MyButton from "./MyButton";
 import { useNavigate } from "react-router-dom";
 
-export default function DiaryItem({ id, content, emotion, date }) {
+const DiaryItem = React.memo(({ id, content, emotion, date }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || "";
 
@@ -32,7 +32,7 @@ export default function DiaryItem({ id, content, emotion, date }) {
       </EditBtnWrapper>
     </DiaryCard>
   );
-}
+});
 
 const Info = styled.div`
   flex-grow: 1;
@@ -92,3 +92,5 @@ const EmotionImg = styled.div`
     width: 50%;
   }
 `;
+
+export default DiaryItem;

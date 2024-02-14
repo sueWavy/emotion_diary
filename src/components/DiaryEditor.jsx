@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { DiaryDispatchContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import { getStringDate } from "../util/date";
@@ -23,9 +29,9 @@ export default function DiaryEditor({ isEdit, originData }) {
   const navigate = useNavigate();
 
   // 5가지 감정 중 선택한 감정 체크
-  const handleClickEmote = (emotion) => {
+  const handleClickEmote = useCallback((emotion) => {
     setEmotion(emotion);
-  };
+  }, []);
 
   const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
 

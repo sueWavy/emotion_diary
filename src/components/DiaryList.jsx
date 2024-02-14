@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MyButton from "./MyButton";
-import { useNavigate } from "react-router-dom";
 import DiaryItem from "./DiaryItem";
 
 /** 정렬 타입 데이터 정의 */
@@ -20,7 +20,7 @@ const filterOptionList = [
 ];
 
 /** 컨트롤바 분리 작성 */
-const ControlMenu = ({ value, onChange, optionList }) => {
+const ControlMenu = React.memo(({ value, onChange, optionList }) => {
   return (
     <ControlBar value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList.map((it, idx) => (
@@ -30,7 +30,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
       ))}
     </ControlBar>
   );
-};
+});
 
 export default function DiaryList({ diaryList }) {
   const [sortType, setSortType] = useState("lastest");
