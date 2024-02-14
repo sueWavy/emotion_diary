@@ -9,6 +9,11 @@ export default function Edit() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Soo 일기장 - ${id}번째 일기 수정`;
+  }, []);
+
   // 페이지 id에 맞는 다이어리 정보 받아오기
   useEffect(() => {
     if (diaryList.length >= 1) {
