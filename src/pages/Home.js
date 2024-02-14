@@ -12,6 +12,11 @@ export default function Home() {
   const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
   useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = "Soo 일기장";
+  }, []);
+
+  useEffect(() => {
     if (diaryList.length >= 1) {
       // 현재 년도, 월의 첫째날 구하기
       const firstDay = new Date(
