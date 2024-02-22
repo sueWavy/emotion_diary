@@ -12,6 +12,7 @@ https://sueboi-project.web.app/
 
 ### 🧑🏻‍💻 사용한 기술 스택
 + React.js
++ Yarn
 + Styled-Component
 + useState, UseEffect, useReducer, useContext, useMemo 및 useCallback 학습
 + Firebase 배포
