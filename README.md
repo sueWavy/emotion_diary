@@ -12,6 +12,7 @@ https://sueboi-project.web.app/
 
 ### 🧑🏻‍💻 사용한 기술 스택
 + React.js
++ Styled-Component
 + useState, UseEffect, useReducer, useContext, useMemo 및 useCallback 학습
 + Firebase 배포
 
@@ -70,4 +71,5 @@ https://sueboi-project.web.app/
 리액트를 학습하며, 컴포넌트화와 컴포넌트 재사용, SPA로 페이지가 동적으로 재작성하는 것을 학습했습니다.
 전체적인 리액트를 이용한 프로젝트 생성 및 진행 방식을 배워가며 useState, useEffect 등의 리액트 기능을 학습하고 useMemo와 같은 최적화 방식에 대해서도 알게되었습니다.
 그리고 Firebase CI/CD 및 파비콘 설정과 Open Graph 도 만져볼 수 있는 좋은 기회였습니다.
+Styled-Componet 는 css.style 파일을 만들지 않고 해당 컴포넌트 및 페이지에 작성할 수 있어 편의했지만 컴포넌트와 스타일컴포넌트가 헷갈리는 문제가 발생했습니다. ( 주의 ! )
 ```
